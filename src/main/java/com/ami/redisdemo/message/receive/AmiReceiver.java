@@ -13,4 +13,8 @@ public class AmiReceiver {
         System.out.println(message);
     }
 
+    public void receiverAmi3(String message){
+        System.out.println("Ami3 get Message = " + message);
+    }
+
 }

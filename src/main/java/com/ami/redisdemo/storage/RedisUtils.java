@@ -150,13 +150,13 @@ public class RedisUtils {
      * @param timeUnit
      * @return
      */
-    public String setLock(final String key,  final Long expireTime,  final TimeUnit timeUnit){
+    public Boolean setLock(final String key,  final Long expireTime,  final TimeUnit timeUnit){
         String uuid = UUID.randomUUID().toString();
-        Boolean isSuccess= redisTemplate.opsForValue().setIfPresent(key,uuid,expireTime,timeUnit);
+        Boolean isSuccess= redisTemplate.opsForValue().setIfAbsent(key,uuid,expireTime,timeUnit);
         if (Objects.isNull(isSuccess) || !isSuccess) {
-            return null;
+            return false;
         }
-        return uuid;
+        return true;
     }
 
 }

@@ -12,7 +12,7 @@ public class MessageService {
     RedisTemplate<String,Object> redisTemplate;
 
     public void sendDataToAmi1(){
-        redisTemplate.convertAndSend("ami1.channel","Hello Ami1");
+        redisTemplate.convertAndSend("ami1.channel12333","Hello Ami1");
     }
 
     public void sendDataToAmi2(){
